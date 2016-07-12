@@ -137,7 +137,7 @@ and open the template in the editor.
                                             <option>Grupo 3</option>
                                         </select>  
                                 </div>
-                                 <div class="col-md-12 col-sm-12 col-xs-12 formsLine">
+                                 <div class="col-md-12 col-sm-12 col-xs-12 formsLine" style="padding-bottom: 10px;">
                                         <label for="ementa" class="control-label">EMENTA:<font color="red"> *</font></label>
                                         <textarea type="textarea" class="form-control" id="ementa" placeholder="Informe a ementa"></textarea>
                                 </div>
@@ -196,8 +196,13 @@ and open the template in the editor.
       </div>
     
     
-       <script type="text/javascript">
-                    $('.select2single').select2();
+        <script type="text/javascript">
+            $(window).load(function(){
+                $('.select2single').select2();
+             });
+            $( window ).resize(function() {
+                $("select").select2();
+            });
         </script>
                   
         <script>
@@ -208,7 +213,7 @@ and open the template in the editor.
                                 $('.select2single').select2();
                          });
                     });
-</script>  
+        </script>  
   </body>
 </html>
 
