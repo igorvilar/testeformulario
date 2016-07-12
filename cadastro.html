@@ -177,14 +177,18 @@ and open the template in the editor.
                                         <label for="pdf" class="control-label">PDF:<font color="red"> *</font></label>
                                         <input id="input-1" type="file" class="file pdf form-control">
                                 </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine"><label for="arquivosdigitais" class="control-label" style="padding-right: 10px;">ARQUIVOS DIGITAIS:</label><button type="button" id="insert-input" class="control-label"> + </button><div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 formsLine"  id="arquivosdigitais-container">
-                                        <label for="arquivosdigitais" class="control-label" style="padding-right: 10px;">ARQUIVOS DIGITAIS:</label><button type="button" id="insert-input" class="control-label"> + </button>
-                                        <select class="form-control select2single" id="tipoarquivo">
-                                            <option>Selecione o tipo</option>
-                                            <option>Certidão</option> 
-                                            <option>tipo 3</option>
-                                        </select>  
-                                        <input style="margin-bottom:10px" type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />
+                                        <div class="col-md-3 col-sm-3 col-xs-12" style="padding-bottom: 10px;">
+                                            <select class="form-control select2single" id="tipoarquivo">
+                                                <option>Selecione o tipo</option>
+                                                <option>Certidão</option> 
+                                                <option>tipo 3</option>
+                                            </select>  
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-12 formsLine">
+                                                <input style="margin-bottom:10px; " type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />
+                                        </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
                                         <label for="proximaacao" class="control-label">PRÓXIMA AÇÃO:</label>
@@ -211,7 +215,7 @@ and open the template in the editor.
         <script>
                     $(function(){
                     $('#insert-input').click(function(){
-                                var $newInput = '<select class="form-control select2single" id="tipoarquivo"><option>Selecione o tipo</option><option>Certidão</option><option>tipo 3</option></select><input style="margin-bottom:10px" type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />';
+                                var $newInput = '<div class="col-md-3 col-sm-3 col-xs-12" style="padding-bottom: 10px;"><select class="form-control select2single" id="tipoarquivo"><option>Selecione o tipo</option><option>Certidão</option> <option>tipo 3</option></select></div><div class="col-md-9 col-sm-9 col-xs-12 formsLine"><input style="margin-bottom:10px; " type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" /></div>';
                                 $('#arquivosdigitais-container').append($newInput);
                                 $('.select2single').select2();
                          });
