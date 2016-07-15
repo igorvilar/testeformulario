@@ -35,8 +35,7 @@ and open the template in the editor.
   	<script>window.jQuery || document.write('<script src="js/library/jquery/jquery.min.js">\x3C/script>')</script>
         	<link rel="stylesheet" href="dist/css/select2.min.css">
                 <link rel="stylesheet" href="dist/css/select2-bootstrap.css">
-                <script type="text/javascript" src="dist/js/select2.min.js"></script>
-                <style>div.formsLine{min-height:64px;}</style>
+                <style>div.formsLine{min-height:65px;}</style>
                 
                 <!-- Utilities JS -->
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -72,7 +71,10 @@ and open the template in the editor.
 <!-- Theme JS -->
 	<script src="js/custom.calendar.js" type="text/javascript"></script>
 	<script src="js/custom.style.js" type="text/javascript"></script>
-             
+               
+                <script type="text/javascript" src="dist/js/select2.min.js"></script>
+                <script type="text/javascript" src="typeahead/dist/typeahead.bundle.js"></script>
+ 
                 
   </head>
   <body style="padding-top: 0!important">
@@ -86,7 +88,7 @@ and open the template in the editor.
                                      <label class="form-control" class="control-label">2016.10000.10000.5.00029<font color="red"> *</font></label>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
-                                        <label for="dataPropositura" class="control-label">DATA PROPOSITURA:<font color="red"> *</font></label>
+                                        <label for="dataPropositura" class="control-label">DATA DE PROPOSITURA:<font color="red"> *</font></label>
                                         <input type="date" class="form-control" id="dataPropositura" placeholder="Informe a data da propositura">
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
@@ -137,55 +139,56 @@ and open the template in the editor.
                                             <option>Grupo 3</option>
                                         </select>  
                                 </div>
-                                 <div class="col-md-12 col-sm-12 col-xs-12 formsLine" style="padding-bottom: 10px;">
-                                        <label for="ementa" class="control-label">EMENTA:<font color="red"> *</font></label>
-                                        <textarea type="textarea" class="form-control" id="ementa" placeholder="Informe a ementa"></textarea>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 formsLine">
-                                        <label for="autor" class="control-label">AUTOR:<font color="red"> *</font></label>
-                                        <select class="form-control select2single" id="autor">
-                                            <option>Auto 1</option>
-                                            <option>Auto 2</option> 
-                                            <option>Autor 3</option>
-                                        </select>  
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 formsLine">
+                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine">
                                         <div style="width:100%; float: left;">
                                             <label for="urgente" class="control-label">URGENTE?</label>
                                         </div>
                                         <div class="radio urgente" style="width:60px; float: left;">
-                                                <label><input type="radio" name="optradio">SIM</label>
+                                                <label><input type="radio" name="optradio">Sim</label>
                                         </div>
                                        <div class="radio urgente disabled" style="width:60px; float: left; margin-top: 10px;">
-                                                <label><input type="radio" name="optradio">NÃO</label>
+                                                <label><input type="radio" name="optradio">Não</label>
                                         </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine">
-                                        <label for="autoresAdicionados" class="control-label">AUTORES ADICIONADOS:</label>
-                                        <input type="text" class="form-control" id="autoresAdicionados" placeholder="Informe os autores adicionados"> 
+                                    <div class="col-md-12 col-sm-12 col-xs-12 formsLine" style="padding-bottom: 10px;">
+                                        <label for="ementa" class="control-label">EMENTA:<font color="red"> *</font></label>
+                                        <textarea type="textarea" class="form-control" id="ementa" placeholder="Informe a ementa"></textarea>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 formsLine">
+                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine"><label for="autor" class="control-label" style="padding-right: 10px;">AUTOR:<font color="red"> *</font></label><button type="button" id="insert-input-autor" class="control-label"> + </button><div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine" id="autor-container">
+                                        <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
+                                            <select class="form-control select2single" id="autor">
+                                                <option>Autor 1</option>
+                                                <option>Autor 2</option> 
+                                                <option>Autor 3</option>
+                                            </select>  
+                                        </div>
+                                </div>
+                               
+                                <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
                                         <label for="word" class="control-label">WORD:<font color="red"> *</font></label>
                                         <input id="input-1" type="file" class="file word form-control">
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 formsLine">
+                                <div class="col-md-4 col-sm-4 col-xs-12 formsLine">
                                         <label for="pdf" class="control-label">PDF:<font color="red"> *</font></label>
                                         <input id="input-1" type="file" class="file pdf form-control">
                                 </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 formsLine"><label for="arquivosdigitais" class="control-label" style="padding-right: 10px;">ARQUIVOS DIGITAIS:</label><button type="button" id="insert-input-arquivosdigitais" class="control-label"> + </button><div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 formsLine"  id="arquivosdigitais-container">
-                                        <label for="arquivosdigitais" class="control-label" style="padding-right: 10px;">ARQUIVOS DIGITAIS:</label><button type="button" id="insert-input" class="control-label"> + </button>
-                                        <select class="form-control select2single" id="tipoarquivo">
-                                            <option>Selecione o tipo</option>
-                                            <option>Certidão</option> 
-                                            <option>tipo 3</option>
-                                        </select>  
-                                        <input style="margin-bottom:10px" type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />
+                                        <div class="col-md-3 col-sm-3 col-xs-12" style="padding-bottom: 10px;">
+                                            <select class="form-control select2single" id="tipoarquivo">
+                                                <option>Selecione o tipo</option>
+                                                <option>Certidão</option> 
+                                                <option>tipo 3</option>
+                                            </select>  
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-12 formsLine">
+                                                <input style="margin-bottom:10px; " type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />
+                                        </div>
                                 </div>
-                                
                                     <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px">
-                                        <button type="submit" class="btn btn-primary">SALVAR</button>
-                                        <button type="submit" class="btn btn-primary">CADASTRO</button>
-                                        <button type="backbutton" class="btn btn-primary">VOLTAR</button>
+                                        <button type="backbutton" class="btn btn-primary">Voltar</button>
+                                        <button type="submit" class="btn btn-primary">Incluir</button>
                                 </div>
                                 </form>
                         </div>
@@ -196,24 +199,34 @@ and open the template in the editor.
       </div>
     
     
-        <script type="text/javascript">
-            $(window).load(function(){
-                $('.select2single').select2();
-             });
-            $( window ).resize(function() {
-                $("select").select2();
-            });
-        </script>
-                  
+ 
         <script>
                     $(function(){
-                    $('#insert-input').click(function(){
-                                var $newInput = '<select class="form-control select2single" id="tipoarquivo"><option>Selecione o tipo</option><option>Certidão</option><option>tipo 3</option></select><input style="margin-bottom:10px" type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" />';
+                    $('#insert-input-arquivosdigitais').click(function(){
+                                var $newInput = '<div class="col-md-3 col-sm-3 col-xs-12" style="padding-bottom: 10px;"><select class="form-control select2single" id="tipoarquivo"><option>Selecione o tipo</option><option>Certidão</option> <option>tipo 3</option></select></div><div class="col-md-9 col-sm-9 col-xs-12 formsLine"><input style="margin-bottom:10px; " type="file" class="file arquivosdigitais form-control" name="arquivosdigitais[]" /></div>';
                                 $('#arquivosdigitais-container').append($newInput);
                                 $('.select2single').select2();
                          });
                     });
-        </script>  
+                    
+                    $(function(){
+                    $('#insert-input-autor').click(function(){
+                                var $newInput = '<div class="col-md-4 col-sm-4 col-xs-12 formsLine"><select class="form-control select2single" id="autor"><option>Autor 1</option><option>Autor 2</option><option>Autor 3</option></select></div>';
+                                $('#autor-container').append($newInput);
+                                $('.select2single').select2();
+                         });
+                    });
+    </script>  
+                   <script type="text/javascript">
+        $(window).load(function(){
+            $('.select2single').select2();
+        });
+        $( window ).resize(function() {
+            $("select").select2();
+        });
+                 </script>
+                 
+                 
   </body>
 </html>
 
